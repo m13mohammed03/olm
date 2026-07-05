@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title != 'undefined' ? title : 'Admin - OLM SUYARI' %></title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #343a40;
+        }
+        .sidebar .nav-link {
+            color: #c2c7d0;
+            padding: 15px 20px;
+            border-bottom: 1px solid #4b545c;
+        }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            color: #fff;
+            background-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary" href="/admin">OLM SUYARI ADMIN</a>
+            <div class="d-flex">
+                <a class="btn btn-outline-light me-2" href="/">View Store</a>
+                <a class="btn btn-danger" href="/auth/logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2 p-0 sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin"><i class="fas fa-tachometer-alt me-2"></i> Tableau de bord</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/products"><i class="fas fa-box me-2"></i> Produits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/categories"><i class="fas fa-tags me-2"></i> Catégories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/orders"><i class="fas fa-shopping-cart me-2"></i> Commandes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/settings"><i class="fas fa-cog me-2"></i> Paramètres</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- Main Content -->
+            <div class="col-md-10 p-4">
+                <!-- Flash Messages -->
+                <% if (success_msg && success_msg.length > 0) { %>
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <%= success_msg %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                <% } %>
+                <% if (error_msg && error_msg.length > 0) { %>
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <%= error_msg %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                <% } %>
+
+                <%- body %>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

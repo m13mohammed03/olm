@@ -1,0 +1,25 @@
+<h2 class="mb-4">Tableau de bord Admin</h2>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-4">
+        <div class="card bg-primary text-white text-center p-4">
+            <h3>Total Produits</h3>
+            <h1 class="display-4"><%= productCount %></h1>
+            <a href="/admin/products" class="text-white text-decoration-none">Gérer les Produits <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-success text-white text-center p-4">
+            <h3>Total Commandes</h3>
+            <h1 class="display-4"><%= orderCount %></h1>
+            <a href="/admin/orders" class="text-white text-decoration-none">Gérer les Commandes <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-info text-white text-center p-4">
+            <h3>Boutique</h3>
+            <h1 class="display-4"><i class="fas fa-store"></i></h1>
+            <a href="/" class="text-white text-decoration-none">Voir la Boutique <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>

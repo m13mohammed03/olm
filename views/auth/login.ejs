@@ -1,0 +1,30 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold text-primary">Connexion</h2>
+                        <p class="text-muted">Connectez-vous à votre compte OLM SUYARI</p>
+                    </div>
+                    
+                    <form action="/auth/login" method="POST">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Adresse Email</label>
+                            <input type="email" class="form-control p-2" id="email" name="email" required placeholder="Entrez votre email">
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control p-2" id="password" name="password" required placeholder="Entrez votre mot de passe">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 rounded-pill mb-3">Se connecter</button>
+                    </form>
+                    
+                    <div class="text-center mt-3">
+                        <p>Pas encore de compte ? <a href="/auth/register" class="text-decoration-none">S'inscrire</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="hero-section text-center mb-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold text-dark mb-3">Découvrez Votre Éclat</h1>
+        <p class="lead mb-4 text-dark">Des produits de beauté de luxe conçus pour sublimer votre routine quotidienne.</p>
+        <a href="/shop" class="btn btn-primary btn-lg rounded-pill px-5">Acheter Maintenant</a>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <h2 class="text-center mb-4 text-primary">Acheter par Catégorie</h2>
+    <div class="row g-4">
+        <% categories.forEach(category => { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="category-card h-100">
+                    <h5 class="mb-3"><%= category.name %></h5>
+                    <p class="small mb-3"><%= category.description %></p>
+                    <a href="/shop?category=<%= category.id %>" class="btn btn-outline-primary btn-sm rounded-pill">Explorer</a>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <h2 class="text-center mb-4 text-primary">Produits Phares</h2>
+    <div class="row g-4">
+        <% featuredProducts.forEach(product => { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="card product-card h-100">
+                    <img src="<%= product.image_url || 'https://via.placeholder.com/300x250?text=OLM+SUYARI' %>" class="card-img-top product-img" alt="<%= product.name %>">
+                    <div class="card-body text-center">
+                        <h6 class="card-title text-truncate"><%= product.name %></h6>
+                        <p class="text-muted small mb-2"><%= product.category_name %></p>
+                        <p class="fw-bold mb-3"><%= Number(product.price).toFixed(0) %> F CFA</p>
+                        <a href="/product/<%= product.id %>" class="btn btn-outline-primary w-100 rounded-pill">Voir Détails</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>

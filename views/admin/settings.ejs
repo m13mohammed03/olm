@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Paramètres du Site</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <form action="/admin/settings" method="POST" enctype="multipart/form-data">
+                    
+                    <h5 class="mb-4 text-primary border-bottom pb-2">Informations Générales</h5>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Nom du Site</label>
+                        <input type="text" name="site_name" class="form-control" value="<%= settings.site_name || '' %>" required>
+                        <div class="form-text">Le nom affiché dans l'en-tête et le pied de page.</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label">Logo du Site</label>
+                        <% if (settings.site_logo) { %>
+                            <div class="mb-2">
+                                <img src="<%= settings.site_logo %>" alt="Current Logo" style="height: 50px; object-fit: contain;">
+                            </div>
+                        <% } %>
+                        <input type="file" name="site_logo" class="form-control" accept="image/*">
+                        <div class="form-text">Laissez vide pour conserver le logo actuel.</div>
+                    </div>
+                    
+                    <h5 class="mb-4 text-primary border-bottom pb-2 mt-5">Coordonnées de Contact</h5>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Adresse Email de Contact</label>
+                        <input type="email" name="contact_email" class="form-control" value="<%= settings.contact_email || '' %>" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Numéro de Téléphone</label>
+                        <input type="text" name="contact_phone" class="form-control" value="<%= settings.contact_phone || '' %>">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label">Adresse Physique</label>
+                        <textarea name="contact_address" class="form-control" rows="3"><%= settings.contact_address || '' %></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary px-4">Sauvegarder les Paramètres</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

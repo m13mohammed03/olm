@@ -1,0 +1,73 @@
+<div class="container py-5">
+    <h2 class="mb-4">Caisse</h2>
+    
+    <div class="row">
+        <div class="col-md-8 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0">Détails de Livraison</h5>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/checkout" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Nom Complet</label>
+                                <input type="text" class="form-control bg-light" value="<%= user.name %>" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control bg-light" value="<%= user.email %>" readonly>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Numéro de Téléphone <span class="text-danger">*</span></label>
+                                <input type="text" name="phone" class="form-control" required placeholder="Entrez votre numéro de contact">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Adresse de Livraison <span class="text-danger">*</span></label>
+                                <textarea name="delivery_address" class="form-control" rows="3" required placeholder="Entrez votre adresse de livraison complète"></textarea>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <h5 class="border-bottom pb-2 mb-3">Méthode de Paiement</h5>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio" name="payment_method" id="cod" value="cod" checked>
+                                    <label class="form-check-label fw-bold" for="cod">
+                                        Paiement à la Livraison (COD)
+                                    </label>
+                                    <div class="form-text">Payez en espèces lors de la livraison.</div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill">Passer la Commande</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0">Votre Commande</h5>
+                </div>
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                        <% cart.forEach(item => { %>
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                <div>
+                                    <h6 class="my-0 text-truncate" style="max-width: 200px;"><%= item.product.name %></h6>
+                                    <small class="text-muted">Qté: <%= item.quantity %></small>
+                                </div>
+                                <span class="text-muted"><%= (item.product.price * item.quantity).toFixed(0) %> F CFA</span>
+                            </li>
+                        <% }) %>
+                        <li class="list-group-item d-flex justify-content-between bg-light p-3">
+                            <span>Total</span>
+                            <strong><%= Number(total).toFixed(0) %> F CFA</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

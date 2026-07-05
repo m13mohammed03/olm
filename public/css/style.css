@@ -1,0 +1,111 @@
+/* Custom Styles for OLM SUYARI */
+:root {
+    --primary-color: #C03A35;
+    --secondary-color: #733019;
+    --accent-color: #F9ABA4;
+    --bg-light: #fff5f5;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: var(--primary-color) !important;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--accent-color) 100%);
+    padding: 80px 0;
+}
+
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.product-img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.category-card {
+    background-color: var(--bg-light);
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.category-card:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+.category-card:hover a {
+    color: white;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 40px 0 20px 0;
+}
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+footer a:hover {
+    color: white;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: var(--primary-color);
+}
